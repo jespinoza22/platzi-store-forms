@@ -1,0 +1,56 @@
+<p>
+    Name: {{ nameField.value }} {{ nameField.valid }}
+    <input type="text" [formControl] = "nameField" />
+    <!-- <code>
+        <pre>{{ nameField | json }}</pre>
+    </code> -->
+    <button [disabled] = "nameField.invalid" (click) = "getNameValue()">Get Value</button>
+</p>
+
+<div class="messages" [class.active] = "isNameFieldInValid">
+    <p>
+        <strong *ngIf="nameField.touched && nameField.hasError('required')">Este campo es requerido</strong>
+    </p>
+</div>
+
+
+<p>
+    Email: {{ emailField.value }}
+    <input type="email" [formControl] = "emailField" />
+</p>
+
+<p>
+    Phone: {{ phoneField.value }}
+    <input type="tel" [formControl] = "phoneField" />
+</p>
+
+<p>
+    Color: {{ coloField.value }}
+    <input type="color" [formControl] = "coloField" />
+</p>
+
+<p>
+    Date: {{ dateField.value }}
+    <input type="date" [formControl] = "dateField" />
+</p>
+<p>
+    Category: {{ categorieField.value }}
+    <select [formControl] = "categorieField">
+        <option value="category-1">Category 1</option>
+        <option value="category-2">Category 2</option>
+        <option value="category-3">Category 3</option>
+        <option value="category-4">Category 4</option>
+        <option value="category-5">Category 5</option>
+    </select>
+</p>
+
+<p>
+    Tags: {{ tagField.value }}
+    <select [formControl] = "tagField" multiple size="2">
+        <option value="tagField-1">tagField 1</option>
+        <option value="tagField-2">tagField 2</option>
+        <option value="tagField-3">tagField 3</option>
+        <option value="tagField-4">tagField 4</option>
+        <option value="tagField-5">tagField 5</option>
+    </select>
+</p>
