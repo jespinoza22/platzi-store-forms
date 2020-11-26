@@ -4,7 +4,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 import { BasicFormComponent } from './components/basic-form/basic-form.component';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -25,7 +24,7 @@ const routes: Routes = [
       {
         path: 'basic',
         component: BasicFormComponent
-      },
+      }
     ]
   }
 ];
