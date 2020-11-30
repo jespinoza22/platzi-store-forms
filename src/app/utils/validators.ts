@@ -1,6 +1,6 @@
 import { AbstractControl } from '@angular/forms';
-import { CategoriesService } from './../core/services/categories.service';
 import { map } from 'rxjs/operators';
+import { CategoriesService } from './../core/services/categories.service';
 
 export class MyValidators {
 
@@ -36,8 +36,8 @@ export class MyValidators {
       return service.checkCategory(value)
       .pipe(
         map((response: any) => {
-          const isAvaialable = response.isAvailable;
-          if (!isAvaialable) {
+          const isAvailable = response.isAvailable;
+          if (!isAvailable) {
             return {not_available: true};
           }
           return null;
@@ -45,6 +45,7 @@ export class MyValidators {
       );
     };
   }
+
 }
 
 function containsNumber(value: string){

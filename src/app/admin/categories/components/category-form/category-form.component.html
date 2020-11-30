@@ -13,15 +13,11 @@
                 <mat-error *ngIf="nameField.hasError('required')">
                   Este campo es requerido
                 </mat-error>
-              </div>
-              <div class="messages" *ngIf="nameField.touched && nameField.invalid">
-                <mat-error *ngIf="nameField.hasError('minLength')">
-                  Minimo debe tenr 4 caracteres
+                <mat-error *ngIf="nameField.hasError('minlength')">
+                  Minimo debe tener 4 car..
                 </mat-error>
-              </div>
-              <div class="messages" *ngIf="nameField.touched && nameField.invalid">
                 <mat-error *ngIf="nameField.hasError('not_available')">
-                  Este nombre ya existe
+                  Este nombre ya lo tiene otra categoría
                 </mat-error>
               </div>
             </mat-form-field>
@@ -30,7 +26,8 @@
         <div class="row">
           <div class="col-xs">
             <img *ngIf="imageField.value" [src]="imageField.value" />
-            <input (change)="uploadFile($event)" placeholder="Image" type="file">              
+            <!-- <img *ngIf="(image$ | async) as image" [src]="image" /> -->
+            <input type="file" (change)="uploadFile($event)">
             <div class="messages" *ngIf="imageField.touched && imageField.invalid">
               <mat-error *ngIf="imageField.hasError('required')">
                 Este campo es requerido
@@ -40,7 +37,10 @@
         </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" type="submit">Guardar categoría</button>
+      <button mat-raised-button color="primary" type="submit">
+        <span *ngIf="isNew">Crear Categoría</span>
+        <span *ngIf="!isNew">Editar Categoría</span>
+      </button>
     </mat-card-actions>
   </mat-card>
 
